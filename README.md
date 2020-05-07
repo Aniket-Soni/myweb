@@ -72,5 +72,3 @@
   else 
   sudo docker run -d -t -i -p 8081:80 -v /lwweb:/usr/local/apache2/htdocs/ --name runmyos1 httpd
   fi
-  
-  
