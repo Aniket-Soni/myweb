@@ -10,7 +10,7 @@
  * In this repository two branches are created. 
    * Master 
    * Dev1 
-   javascript
+   ```javascript
    git init 
    cat > web1.html
    git add web1.html
@@ -20,6 +20,7 @@
    git remote add origin URL
    git push -u origin master
    git push -u origin  dev1
+   ```
    
    
    
@@ -38,18 +39,20 @@
   
     * We create a job1a in this we use poll scm, it copies the data in /lwweb2 folder.
     
-      javascript
+      ```javascript
       sudo cp -v -r -f /lwweb
+      ```
       
     * Then we created job1b and used chaining with job1a which deployes the data to docker testing server.
     
-      javascript
+      ```javascript
       if sudo docker ps|grep testmyos
       then
       echo "already running"
       else 
       sudo docker run -d -t -i -p 8082:80 -v /lwweb:/usr/local/apache2/htdocs/ --name testmyos1 httpd
       fi
+      ```
   
     
   * job2 created to keep on checking the main branch.
@@ -65,10 +68,11 @@
   
   *in the job2 execute shell*
   
-  javascript
+  ```javascript
   if sudo docker ps|grep runmyos
   then
   echo "already running"
   else 
   sudo docker run -d -t -i -p 8081:80 -v /lwweb:/usr/local/apache2/htdocs/ --name runmyos1 httpd
   fi
+  ```
